@@ -1,6 +1,6 @@
 language: android
 jdk: oraclejdk8
-sudo: true
+sudo: required
 
 env:
   global:
@@ -17,18 +17,28 @@ android:
     - tools
     - platform-tools
     - tools
+     # The BuildTools version used by your project
     - build-tools-$ANDROID_BUILD_TOOLS_VERSION
+    # The SDK version used to compile your project
     - android-$ANDROID_API_LEVEL
     - android-$ANDROID_EMULATOR_LEVEL
     - extra-android-support
     - extra-google-m2repository
-    - extra-android-m2repository
-    - sys-img-$ANDROID_ABI-google_apis-$ANDROID_EMULATOR_LEVEL
+    - extra-android-m2repository # this may have been depricated in 2017
+    - sys-img-$ANDROID_ABI-$ANDROID_TAG-$ANDROID_EMULATOR_LEVEL
 
 licenses:
   - 'android-sdk-preview-license-.+'
   - 'android-sdk-license-.+'
   - 'google-gdk-license-.+'
+
+# git:
+#   depth: 3
+
+# # safelist
+# branches:
+#   only:
+#   - master
 
 #install:
 #  - echo y | android update sdk -u -a -t tools
@@ -37,6 +47,10 @@ licenses:
 #  - echo y | android update sdk -u -a -t android-27
 #  - echo y | android update sdk -u -a -t extra-google-m2repository
 #  - echo y | android update sdk -u -a -t extra-android-m2repository
+
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
 
 cache:
   directories:
@@ -47,6 +61,7 @@ cache:
 
 before_install:
  - chmod +x gradlew
+ - yes | sdkmanager "platforms;android-27"
 
 script:
   - android list targets
@@ -60,4 +75,4 @@ script:
   - ./gradlew connectedDebugAndroidTest -PdisablePreDex --continue --stacktrace
 
 after_failure:
-  - cat $TRAVIS_BUILD_DIR/app/build/reports/lint-results.xml
+  - cat $TRAVIS_BUILD_DIR/app/build/reports/lint-results-debug.xml

@@ -31,6 +31,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.isClickable;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
+import static junit.framework.Assert.assertTrue;
 import static org.hamcrest.core.AllOf.allOf;
 import static org.junit.Assert.*;
 import static org.hamcrest.core.StringContains.containsString;
@@ -92,4 +93,10 @@ public class MainActivityTest {
         intended(expectedIntent);
         Intents.release();
     }
+
+    @Test
+    public void AlwaysPassTest() throws Exception{
+        assertTrue(true);
+    }
+
 }

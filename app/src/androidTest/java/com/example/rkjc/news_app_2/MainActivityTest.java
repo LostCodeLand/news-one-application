@@ -45,20 +45,20 @@ import static org.hamcrest.core.StringContains.containsString;
 @LargeTest
 public class MainActivityTest {
 
-    // Convenience helper
-    public static RecyclerViewMatcher withRecyclerView(final int recyclerViewId) {
-        return new RecyclerViewMatcher(recyclerViewId);
-    }
-
-
-    @Rule
-    public ActivityTestRule<MainActivity> mActivityRule =
-            new ActivityTestRule(MainActivity.class);
-
-    @Before
-    public void setup(){
-        onView(withId(R.id.action_search)).perform(click());
-    }
+//    // Convenience helper
+//    public static RecyclerViewMatcher withRecyclerView(final int recyclerViewId) {
+//        return new RecyclerViewMatcher(recyclerViewId);
+//    }
+//
+//
+//    @Rule
+//    public ActivityTestRule<MainActivity> mActivityRule =
+//            new ActivityTestRule(MainActivity.class);
+//
+//    @Before
+//    public void setup(){
+//        onView(withId(R.id.action_search)).perform(click());
+//    }
 
 //    @Test
 //    public void testRecyclerViewIsDisplayed(){
@@ -94,9 +94,9 @@ public class MainActivityTest {
 //        Intents.release();
 //    }
 
-    @Test
-    public void AlwaysPassTest() throws Exception{
-        assertTrue(true);
-    }
+//    @Test
+//    public void AlwaysPassTest() throws Exception{
+//        assertTrue(true);
+//    }
 
 }

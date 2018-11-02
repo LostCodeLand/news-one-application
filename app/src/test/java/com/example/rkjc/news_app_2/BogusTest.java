@@ -8,9 +8,9 @@ import static junit.framework.Assert.assertTrue;
 
 public class BogusTest {
 
-    @Test
-    public void AlwaysPassTest(){
-
-        assertTrue(true);
-    }
+//    @Test
+//    public void AlwaysPassTest(){
+//
+//        assertTrue(true);
+//    }
 }

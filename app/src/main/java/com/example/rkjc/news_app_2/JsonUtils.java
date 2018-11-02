@@ -7,7 +7,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class JsonUtils {
-    private static final String TAG = "### JsonUtils ###";
+    private static final String TAG = "##JsonUtils##";
 
     public static ArrayList<NewsItem> parseNews(String jsonString){
         ArrayList<NewsItem> newsItemList = new ArrayList<>();
